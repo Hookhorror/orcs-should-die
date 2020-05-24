@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int maxHealth;
+    public float movementInterval;
 
     private int health;
     private bool dead = false;
@@ -12,12 +13,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         setHealthToMax();
-        InvokeRepeating("Health", 1, 1);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        // InvokeRepeating("Health", 1, 1);
     }
 
     private bool Dead()
@@ -41,9 +37,14 @@ public class Enemy : MonoBehaviour
         health = maxHealth;
     }
 
-    private int Health()
+    private int GetHealth()
     {
-        Debug.Log(health);
+        // Debug.Log(health);
         return health;
+    }
+
+    public float GetMovementInterval()
+    {
+        return movementInterval;
     }
 }
