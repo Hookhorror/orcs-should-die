@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public int maxHealth;
     public float movementInterval;
+    public float movementSpeed;
 
     private int health;
     private bool dead = false;
@@ -46,5 +47,10 @@ public class Enemy : MonoBehaviour
     public float GetMovementInterval()
     {
         return movementInterval;
+    }
+
+    public float GetMovementSpeed()
+    {
+        return movementSpeed;
     }
 }

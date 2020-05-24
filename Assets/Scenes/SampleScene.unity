@@ -204,6 +204,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1253536566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1253536567}
+  - component: {fileID: 1253536568}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1253536567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253536566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1253536568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253536566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5077626aad034fa76b220eb1f9ceca6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1955427331}
 --- !u!1 &1304261792
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1304261793}
   - component: {fileID: 1304261794}
+  - component: {fileID: 1304261795}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -229,7 +274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304261792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.33787498, y: -0.9416691, z: -0.19312811}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -248,6 +293,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1955427330}
+--- !u!114 &1304261795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304261792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5077626aad034fa76b220eb1f9ceca6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
 --- !u!1 &1955427330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3896260133395072210, guid: 5d997baf65fe42c489e4955c34780d75,
@@ -263,11 +321,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1955427330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f8891c8c38d1a5b39aec062e21cf660, type: 3}
+  m_Script: {fileID: 11500000, guid: 8df7b913513bf02a39cc3addf8400fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
   movementInterval: 0.5
+  movementSpeed: 0.5
 --- !u!114 &1955427332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c115a2f93578809aba70ca5677579c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: 1
 --- !u!1001 &3896260133722452176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291,22 +349,27 @@ PrefabInstance:
     - target: {fileID: 3896260133395072210, guid: 5d997baf65fe42c489e4955c34780d75,
         type: 3}
       propertyPath: m_Name
+      value: Orc
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896260133395072210, guid: 5d997baf65fe42c489e4955c34780d75,
+        type: 3}
+      propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3896260133395072212, guid: 5d997baf65fe42c489e4955c34780d75,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3896260133395072212, guid: 5d997baf65fe42c489e4955c34780d75,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.88
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3896260133395072212, guid: 5d997baf65fe42c489e4955c34780d75,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.19312811
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3896260133395072212, guid: 5d997baf65fe42c489e4955c34780d75,
         type: 3}
