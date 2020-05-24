@@ -20,6 +20,14 @@ public class SpawnEnemy : MonoBehaviour
 
     private void Spawn()
     {
+        // Enemy enemy = new Enemy();
         Instantiate(enemy, gameObject.transform.position, Quaternion.identity);
+        MoveToLeft(enemy);
+    }
+
+    private void MoveToLeft(Enemy item)
+    {
+        item.transform.position = new Vector3(item.transform.position.x - 1f
+                                            , item.transform.position.y);
     }
 }

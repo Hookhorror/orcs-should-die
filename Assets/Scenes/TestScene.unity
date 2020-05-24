@@ -257,6 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1304261793}
+  - component: {fileID: 1304261796}
   - component: {fileID: 1304261794}
   - component: {fileID: 1304261795}
   m_Layer: 0
@@ -306,6 +307,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
+--- !u!114 &1304261796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304261792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52750f69c0e49b3c795453ff3ff7af62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  enemySpawner: {fileID: 1253536566}
 --- !u!1 &1955427330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3896260133395072210, guid: 5d997baf65fe42c489e4955c34780d75,
