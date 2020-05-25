@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
-    private GameController instance;
+    public static PlayerManager instance;
 
     void Awake()
     {
@@ -12,5 +12,6 @@ public class GameController : MonoBehaviour
     }
 
     public GameObject player;
-    public GameObject enemySpawner;
+    public GameObject firingPoint;
+    public GameObject projectile;
 }

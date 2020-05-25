@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public int movementSpeed;
+
     private Vector3 playerPosition;
     private Vector3 movementDirection;
     private Vector3 movement;
-    private float movementSpeed;
 
     private void Start()
     {
         playerPosition = gameObject.transform.position;
-        movementSpeed = PlayerManager.instance.movementSpeed;
     }
 
     // Update is called once per frame
