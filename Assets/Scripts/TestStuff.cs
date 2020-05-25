@@ -14,7 +14,7 @@ public class TestStuff : MonoBehaviour
         {
             // enemy.Damage(1);
             Debug.Log("P pressed");
-            enemy.GetComponent<Enemy>().Damage(1);
+            enemy.GetComponent<Enemy>().ReduceHealth(1);
         }
     }
 }

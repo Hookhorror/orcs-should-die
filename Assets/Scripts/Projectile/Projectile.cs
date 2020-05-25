@@ -4,8 +4,22 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    protected int damage;
-    protected float force;
+    public float force;
+    public int damage;
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        Destroy(gameObject);
+    }
 
     public int GetDamage()
     {

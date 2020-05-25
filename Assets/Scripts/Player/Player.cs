@@ -4,27 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float projectileForce;
-    public int projectileDamage;
-    // Start is called before the first frame update
-    void Start()
-    {
+    public GameObject firingPoint;
+    public Projectile projectile;
 
+    public Projectile GetProjectile()
+    {
+        return projectile;
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject GetFiringPoint()
     {
-
-    }
-
-    public float GetProjectileForce()
-    {
-        return projectileForce;
-    }
-
-    public int GetProjectileDamage()
-    {
-        return projectileDamage;
+        return firingPoint;
     }
 }

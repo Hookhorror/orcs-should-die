@@ -12,6 +12,6 @@ public class PlayerManager : MonoBehaviour
     }
 
     public GameObject player;
-    public GameObject firingPoint;
-    public GameObject projectile;
+    // public GameObject firingPoint;
+    // public GameObject projectile;
 }

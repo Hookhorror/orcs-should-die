@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         setHealthToMax();
-        // InvokeRepeating("Health", 1, 1);
     }
 
     private bool Dead()
@@ -22,7 +21,7 @@ public class Enemy : MonoBehaviour
         return dead;
     }
 
-    public void Damage(int amount)
+    public void ReduceHealth(int amount)
     {
         health -= amount;
         if (health <= 0)
@@ -33,6 +32,30 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("PlayerProjectile"))
+        {
+            Debug.Log("ENEMY HIT");
+            DealDamage(other);
+        }
+    }
+
+    private void DealDamage(Collider2D collision)
+    {
+        Projectile p = null;
+        try
+        {
+            p = collision.GetComponentInParent<Projectile>();
+        }
+        catch (System.Exception)
+        {
+            Debug.LogError("Something else than projectile collided with enemy");
+            return;
+        }
+        ReduceHealth(p.GetDamage());
+    }
+
     private void setHealthToMax()
     {
         health = maxHealth;
@@ -40,7 +63,6 @@ public class Enemy : MonoBehaviour
 
     private int GetHealth()
     {
-        // Debug.Log(health);
         return health;
     }
 

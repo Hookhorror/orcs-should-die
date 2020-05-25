@@ -5,16 +5,18 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     private GameObject firingPoint;
-    private GameObject projectile;
+    private Projectile projectile;
     private float projectileForce;
     private float rateOfFire;
     private bool reloading;
+    // private GameObject projectile;
     // Start is called before the first frame update
     void Start()
     {
-        firingPoint = PlayerManager.instance.firingPoint;
-        projectile = PlayerManager.instance.projectile;
-        projectileForce = GetComponent<Player>().GetProjectileForce();
+
+        firingPoint = GetComponent<Player>().GetFiringPoint();
+        projectile = GetComponent<Player>().GetProjectile();
+        projectileForce = projectile.GetForce();
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class Shooting : MonoBehaviour
 
     private void SpawnPojectile()
     {
-        GameObject p = Instantiate(projectile, firingPoint.transform.position, Quaternion.identity);
+        Projectile p = Instantiate(projectile, firingPoint.transform.position, Quaternion.identity);
         Rigidbody2D rb = p.GetComponent<Rigidbody2D>();
         rb.AddForce(Vector2.up * projectileForce, ForceMode2D.Impulse);
     }

@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerProjectile : Projectile
+public class SpawnWave : MonoBehaviour
 {
+    public Enemy[] wave;
     // Start is called before the first frame update
     void Start()
     {
-        force = GetComponent<Player>().GetProjectileForce();
-        damage = GetComponent<Player>().GetProjectileDamage();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 }
