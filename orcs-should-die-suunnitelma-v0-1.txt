@@ -1,0 +1,26 @@
+# Ensimmäisen syklin suunnitelma - Devoluutio
+
+## Pelin nimi ja innoittaja
+Pelin nimi on Orcs should Die. ja se pohjautuu peliin Orcs Must Die!
+
+## Pelin kuvaus yhdellä lauseella
+Space Invaders kohtaa tornipuolustuksen.
+
+## Ydindiagrammi (Core Diagram)
+  - Ydinmekaniikka: vihollisten tuhoaminen
+  - Toissijaiset mekaniikat: ampuminen ja ansojen rakentaminen
+  - Progressio: pisteiden kerääminen ja uusien karttojen avaaminen päihittämällä edelliset
+  - Narratiivi: Estä örkki-invaasio
+
+## Graafinen ja auditiivinen tyyli
+Peli on kaksiulotteinen ja ylhäältäpäin kuvattu, samaan tapaan kuin Space Invaders. Pelaaja ja viholliset toteutetaan yksinkertaisilla pikselöidyillä spriteillä, ja animaatiot koostetaan kahdesta tai kolmesta spritestä. Ansoilla on oma grafiikkansa riippuen siitä ovatko ne ladattuja vai lauenneita. Pelin tausta on yksivärinen, todennäköisesti musta.
+Äänitehosteet ovat 8-bittistä äänimaailmaa mukailevia, mutta musiikit ovat todennäköisesti jotain muuta kuin 8-bittistä.
+
+## Kuva
+        Hahmotelma elementeistä näytöllä tai
+        ”kuvaruutukaappaus” mihin pyritään
+
+## Mitkä mielihyvän kategoriat (kts. Hunicke, LeBlanc, Zubek 2004) tulevat pelissä toteutumaan
+
+## Kohderyhmä / pelaajatyyppi, jolle peli suunnattu (kts. Hamari, Tuunanen 2014)
+Kohderyhmänä ovat retropeleleistä ja/tai tornipuolustuspeleistä pitävät.
