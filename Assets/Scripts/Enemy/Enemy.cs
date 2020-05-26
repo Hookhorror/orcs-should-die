@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,11 +35,21 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("ENEMY HIT PLAYER");
+            Knockback(other);
+        }
         if (other.CompareTag("PlayerProjectile"))
         {
-            Debug.Log("ENEMY HIT");
+            Debug.Log("ENEMY TOOK HIT");
             DealDamage(other);
         }
+    }
+
+    private void Knockback(Collider2D other)
+    {
+        other.attachedRigidbody.AddForce(Vector2.down * 5, ForceMode2D.Impulse);
     }
 
     private void DealDamage(Collider2D collision)
