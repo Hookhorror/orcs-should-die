@@ -395,6 +395,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1955427331, guid: 39701cff46427dacb9c90dc238bab20b, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2223776584190600729, guid: 39701cff46427dacb9c90dc238bab20b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -455,11 +459,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orc
       objectReference: {fileID: 0}
-    - target: {fileID: 2940352442330109640, guid: 39701cff46427dacb9c90dc238bab20b,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39701cff46427dacb9c90dc238bab20b, type: 3}
 --- !u!1001 &4723421297931635176
@@ -469,6 +468,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5597207660116292667, guid: 5a74f2ce489a7f3d0b7be7b0e9e20a61,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5597207660116292667, guid: 5a74f2ce489a7f3d0b7be7b0e9e20a61,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4723421298251427865, guid: 5a74f2ce489a7f3d0b7be7b0e9e20a61,
         type: 3}
       propertyPath: m_Name

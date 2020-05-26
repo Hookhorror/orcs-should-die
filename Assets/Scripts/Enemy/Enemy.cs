@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public int maxHealth;
     public float movementInterval;
     public float movementSpeed;
+    public float knockbackStrength;
 
     private int health;
     private bool dead = false;
@@ -35,24 +36,48 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("ENEMY HIT PLAYER");
-            Knockback(other);
-        }
+        // if (other.CompareTag("Player"))
+        // {
+        //     Debug.Log("ENEMY HIT PLAYER");
+        //     DealDamageToPlayer();
+        //     Knockback(other);
+        // }
         if (other.CompareTag("PlayerProjectile"))
         {
             Debug.Log("ENEMY TOOK HIT");
-            DealDamage(other);
+            DealDamageToSelf(other);
         }
     }
 
-    private void Knockback(Collider2D other)
+
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        other.attachedRigidbody.AddForce(Vector2.down * 5, ForceMode2D.Impulse);
+        // if (other.otherCollider.CompareTag("Player"))
+        {
+            Debug.Log(other.rigidbody.name);
+            Debug.Log("ENEMY HIT PLAYER");
+            DealDamageToPlayer();
+            Knockback(other.rigidbody);
+        }
+        // if (other.otherCollider.CompareTag("PlayerProjectile"))
+        // {
+        //     Debug.Log("ENEMY TOOK HIT");
+        //     DealDamageToSelf(other.otherCollider);
+        // }
     }
 
-    private void DealDamage(Collider2D collision)
+    private void DealDamageToPlayer()
+    {
+        Debug.Log("DEALT DAMAGE TO PLAYER");
+    }
+
+    private void Knockback(Rigidbody2D rb)
+    {
+        rb.AddForce(Vector2.down * knockbackStrength
+                                       , ForceMode2D.Impulse);
+    }
+
+    private void DealDamageToSelf(Collider2D collision)
     {
         Projectile p = null;
         try
