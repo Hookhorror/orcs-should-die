@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - PlayerProjectile
   - PlayerTest
+  - BottomWall
   layers:
   - Default
   - TransparentFX

@@ -52,13 +52,20 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        // if (other.otherCollider.CompareTag("Player"))
+        if (other.collider.CompareTag("BottomWall"))
         {
-            Debug.Log(other.rigidbody.name);
-            Debug.Log("ENEMY HIT PLAYER");
+            Destroy(gameObject);
+            Debug.Log("YOU LOST A LIFE");
+            return;
+        }
+        if (other.rigidbody.CompareTag("Player"))
+        {
+            // Debug.Log(other.rigidbody.name);
+            // Debug.Log("ENEMY HIT PLAYER");
             DealDamageToPlayer();
             Knockback(other.rigidbody);
         }
+
         // if (other.otherCollider.CompareTag("PlayerProjectile"))
         // {
         //     Debug.Log("ENEMY TOOK HIT");
