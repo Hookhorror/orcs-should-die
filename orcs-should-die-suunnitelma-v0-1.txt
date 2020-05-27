@@ -1,7 +1,7 @@
 # Ensimmäisen syklin suunnitelma - Devoluutio
 
 ## Pelin nimi ja innoittaja
-Pelin nimi on Orcs should Die. ja se pohjautuu peliin Orcs Must Die!
+Pelin nimi on Orcs should Die. ja sen esikuvana on Orcs Must Die! -peli.
 
 ## Pelin kuvaus yhdellä lauseella
 Space Invaders kohtaa tornipuolustuksen.
@@ -20,7 +20,16 @@ Peli on kaksiulotteinen ja ylhäältäpäin kuvattu, samaan tapaan kuin Space In
         Hahmotelma elementeistä näytöllä tai
         ”kuvaruutukaappaus” mihin pyritään
 
-## Mitkä mielihyvän kategoriat (kts. Hunicke, LeBlanc, Zubek 2004) tulevat pelissä toteutumaan
+## Mielihyvän kategoriat
+Orcs Should Die. pyrkii toteuttamaan haasteen ja löytämisen mielihyvän kategoriat. Haaste lienee itsestäänselvä, mutta löytämisellä pyritään siihen että pelaaja löytää itse toimivimmat ratkaisut, joilla pääsee pelissä mahdollisimman pitkälle.
 
-## Kohderyhmä / pelaajatyyppi, jolle peli suunnattu (kts. Hamari, Tuunanen 2014)
-Kohderyhmänä ovat retropeleleistä ja/tai tornipuolustuspeleistä pitävät.
+## Kohderyhmä ja pelaajatyyppi
+Kohderyhmänä ovat retropeleleistä ja/tai tornipuolustuspeleistä pitävät, sekä saavuttamiseen pyrkivät pelaajatyypit.
+
+## Muuta
+Peliin tulee high-score lista, jolla pyritään lisäämään pelikertojen määrää (Mekler, Brühlmann, Tuch, Opwis, 2017.)
+
+## Lähteet:
+- Mekler, E. D., Brühlmann, F., Tuch, A. N. & Opwis, K. (2017). Towards understanding the effects of individual gamification elements on intrinsic motivation and performance. Computers in Human Behavior, 71, pp. 525-534. https://doi.org/10.1016/j.chb.2015.08.048
+- Hunicke, R., LeBlanc, M., Zubek, R. (2004). MDA: A Formal Approach to Game Design and Game Research http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.79.4561
+- Hamari, J., & Tuunanen, J. (2014). Player types: A meta-synthesis. Transactions of the Digital Games Research Association, 1(2), 29-53. http://todigra.org/index.php/todigra/article/download/13/20
