@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SpawnWave : MonoBehaviour
 {
+    public float spaceBetween;
+    public int numberOfWaves;
     public Enemy[] wave;
     // Start is called before the first frame update
     void Awake()
@@ -24,23 +26,29 @@ public class SpawnWave : MonoBehaviour
 
     }
 
+    private void SpawnWaves()
+    {
+        // InvokeRepeating("Spread", 2, 2);
+    }
+
     private void Spread()
     {
-        int addition = 1;
+        // Enemy measurements = Instantiate(Enemy(), Vector3.zero, Quaternion.identity);
+        float addition = spaceBetween + 0.375f;
 
         if (wave.Length % 2 != 0)
         {
             Enemy enemy = Instantiate(wave[wave.Length - 1], Vector3.zero, Quaternion.identity);
             Debug.Log(enemy.transform.position.x);
-            addition = 2;
+            addition = 2 * spaceBetween;
         }
         for (int i = 0; i < wave.Length / 2; i++)
         {
-            Enemy enemyLeft = Instantiate(wave[i], Vector3.left * (i + addition), Quaternion.identity);
+            Enemy enemyLeft = Instantiate(wave[i], new Vector3(gameObject.transform.position.x - (i + addition), gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
             Debug.Log(enemyLeft.transform.position.x);
-            Enemy enemyRight = Instantiate(wave[i], Vector3.right * (i + addition), Quaternion.identity);
+            Enemy enemyRight = Instantiate(wave[i], new Vector3(gameObject.transform.position.x + (i + addition), gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
             Debug.Log(enemyRight.transform.position.x);
-            addition += 1;
+            addition += spaceBetween;
         }
     }
 

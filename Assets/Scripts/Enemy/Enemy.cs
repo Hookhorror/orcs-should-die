@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour
 {
     public int maxHealth;
     public float movementInterval;
-    public float movementSpeed;
+    public float movementSpeedDown;
+    public float movementSpeedSides;
     public float knockbackStrength;
 
     private int health;
@@ -36,12 +37,6 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // if (other.CompareTag("Player"))
-        // {
-        //     Debug.Log("ENEMY HIT PLAYER");
-        //     DealDamageToPlayer();
-        //     Knockback(other);
-        // }
         if (other.CompareTag("PlayerProjectile"))
         {
             Debug.Log("ENEMY TOOK HIT");
@@ -55,6 +50,7 @@ public class Enemy : MonoBehaviour
         if (other.collider.CompareTag("BottomWall"))
         {
             Destroy(gameObject);
+            GetComponent<LifeCounter>().LoseLife();
             Debug.Log("YOU LOST A LIFE");
             return;
         }
@@ -114,8 +110,13 @@ public class Enemy : MonoBehaviour
         return movementInterval;
     }
 
-    public float GetMovementSpeed()
+    public float GetMovementSpeedDown()
     {
-        return movementSpeed;
+        return movementSpeedDown;
+    }
+
+    public float GetMovementSpeedSides()
+    {
+        return movementSpeedSides;
     }
 }
