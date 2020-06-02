@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("PlayerProjectile"))
         {
-            Debug.Log("ENEMY TOOK HIT");
+            // Debug.Log("ENEMY TOOK HIT");
             DealDamageToSelf(other);
         }
     }
@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
         if (other.collider.CompareTag("BottomWall"))
         {
             Destroy(gameObject);
-            GetComponent<LifeCounter>().LoseLife();
+            // GetComponent<LifeCounter>().LoseLife();
             Debug.Log("YOU LOST A LIFE");
             return;
         }
@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
 
     private void DealDamageToPlayer()
     {
-        Debug.Log("DEALT DAMAGE TO PLAYER");
+        // Debug.Log("DEALT DAMAGE TO PLAYER");
     }
 
     private void Knockback(Rigidbody2D rb)
