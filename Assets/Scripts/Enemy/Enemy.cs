@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             dead = true;
-            Debug.Log(gameObject.ToString() + " died");
+            // Debug.Log(gameObject.ToString() + " died");
             Destroy(gameObject);
         }
     }
@@ -49,9 +49,10 @@ public class Enemy : MonoBehaviour
     {
         if (other.collider.CompareTag("BottomWall"))
         {
+            GameObject player = PlayerManager.instance.player;
+            player.GetComponent<Player>().LoseLife();
             Destroy(gameObject);
-            // GetComponent<LifeCounter>().LoseLife();
-            Debug.Log("YOU LOST A LIFE");
+            // Debug.Log("YOU LOST A LIFE | " + player.GetComponent<Player>().GetLives() + " LEFT");
             return;
         }
         if (other.rigidbody.CompareTag("Player"))

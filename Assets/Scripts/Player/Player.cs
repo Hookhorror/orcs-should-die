@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,16 +7,32 @@ public class Player : MonoBehaviour
 {
     public GameObject firingPoint;
     public Projectile projectile;
+    public int maxLives;
+
+    private int lives;
+    private bool gameOver;
 
     private void Start()
     {
-        // Invoke("testi", 2);
+        lives = maxLives;
     }
 
-    private void testi()
+    public void LoseLife()
     {
-        this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 100, ForceMode2D.Impulse);
+        lives--;
+        if (lives <= 0)
+        {
+            GameOver();
+        }
     }
+
+    private void GameOver()
+    {
+        gameOver = true;
+        // Debug.Log("GAME OVER");
+    }
+
+    public int GetLives() => lives;
 
     public Projectile GetProjectile()
     {
