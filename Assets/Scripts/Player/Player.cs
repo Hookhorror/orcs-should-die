@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -29,10 +30,12 @@ public class Player : MonoBehaviour
     private void GameOver()
     {
         gameOver = true;
+        SceneManager.LoadScene("GameOver");
         // Debug.Log("GAME OVER");
     }
 
     public int GetLives() => lives;
+    public bool GetGameOver() => gameOver;
 
     public Projectile GetProjectile()
     {

@@ -157,7 +157,7 @@ MonoBehaviour:
   firingPoint: {fileID: 34620286}
   projectile: {fileID: -4808738805753694310, guid: 0550c5df2b64dbed0af37c2527f41853,
     type: 3}
-  maxLives: 10
+  maxLives: 15
 --- !u!61 &2908603350685423542
 BoxCollider2D:
   m_ObjectHideFlags: 0
