@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public GameObject spikeTrap;
     public int maxLives;
     public int maxScore;
+    public int initialTrapsAvailable;
 
     private int lives;
     private bool gameOver;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     private bool canBuild;
     private Vector3 buildLocation;
     private GameObject currentTrapSpot;
+    private int trapsAvailable;
 
     private void Awake()
     {
@@ -28,11 +30,12 @@ public class Player : MonoBehaviour
     private void Start()
     {
         lives = maxLives;
+        AddTrapsAvailable(initialTrapsAvailable);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // if (CompareTag("TrapSpot"))
+        if (trapsAvailable > 0)
         {
             // Debug.Log("TRAP BUILD LOCATION ENTERED");
             canBuild = true;
@@ -86,11 +89,22 @@ public class Player : MonoBehaviour
         score -= howMuch;
     }
 
+    public void AddTrapsAvailable(int howMany)
+    {
+        trapsAvailable += howMany;
+    }
+
+    public void ReduceTrapsAvailable()
+    {
+        trapsAvailable--;
+    }
+
     public int GetLives() => lives;
     public bool GetGameOver() => gameOver;
     public int GetScore() => score;
     public bool GetBuildStatus() => canBuild;
     public Vector3 GetBuildLocation() => buildLocation;
     public GameObject GetCurrentTrapSpot() => currentTrapSpot;
+    public int GetTrapsAvailable() => trapsAvailable;
 
 }

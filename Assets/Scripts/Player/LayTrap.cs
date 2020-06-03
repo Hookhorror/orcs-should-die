@@ -27,6 +27,7 @@ public class LayTrap : MonoBehaviour
             SpawnTrap(buildLocation);
             reloading = true;
             Destroy(currentTrapSpot);
+            GetComponent<Player>().ReduceTrapsAvailable();
         }
         else if (Input.GetAxisRaw("Fire2") < 1)
         {

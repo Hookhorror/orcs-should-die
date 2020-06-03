@@ -20,6 +20,7 @@ public class SpikeTrap : MonoBehaviour
 
     private void Cooldown()
     {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
         Debug.Log("TRAP ON COOLDOWN");
         onCooldown = true;
         Invoke("ResetCooldown", cooldown);
@@ -27,6 +28,7 @@ public class SpikeTrap : MonoBehaviour
 
     private void ResetCooldown()
     {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
         Debug.Log("COOLDOWN RESETED");
         onCooldown = false;
     }

@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI lifeCount;
     public TextMeshProUGUI scoreCount;
     public TextMeshProUGUI enemiesRemaining;
+    public TextMeshProUGUI trapsAvailable;
+    public TextMeshProUGUI wavesLeft;
 
 
     // Start is called before the first frame update
@@ -18,6 +20,7 @@ public class UIManager : MonoBehaviour
         UpdateLifeCount();
         UpdateHighScores();
         InitialScore();
+        UpdateTrapsAvailable();
     }
 
     // Update is called once per frame
@@ -26,6 +29,8 @@ public class UIManager : MonoBehaviour
         UpdateLifeCount();
         UpdateEnemiesRemaining();
         UpdateScore();
+        UpdateTrapsAvailable();
+        UpdateWavesLeft();
     }
 
     private void UpdateLifeCount()
@@ -60,6 +65,18 @@ public class UIManager : MonoBehaviour
     private void UpdateEnemiesRemaining()
     {
         enemiesRemaining.text = "Enemies Remaining: " + EnemyManager.instance.GetEnemiesOnScreen();
+    }
+
+    private void UpdateTrapsAvailable()
+    {
+        trapsAvailable.text = "Traps Available: " + PlayerManager.instance.player.GetComponent<Player>().GetTrapsAvailable();
+    }
+
+    private void UpdateWavesLeft()
+    {
+        wavesLeft.text = "Wave: " + EnemyManager.instance.GetEnemySpawner().GetComponent<SpawnWave>().GetCurrentWave()
+                       + "/"
+                       + EnemyManager.instance.GetEnemySpawner().GetComponent<SpawnWave>().GetWaves();
     }
 
 }

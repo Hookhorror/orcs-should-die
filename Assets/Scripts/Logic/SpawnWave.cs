@@ -8,10 +8,11 @@ public class SpawnWave : MonoBehaviour
     public float spaceBetween;
     public float initialSpawnTime;
     public float SpawnTime;
+    public int numberOfWaves = 1;
+    public int trapsRewardedAfterWave;
     public int[] numberOfWavesAndRows;
     // public int numberOfRowsInWave;
     public Enemy[] wave;
-    public int numberOfWaves = 1;
 
     private int rowsSpawned;
     private int currentWave;
@@ -31,27 +32,31 @@ public class SpawnWave : MonoBehaviour
             SpawnRowsStop();
             // SpawnRows();
 
-            if (currentWave <= numberOfWaves && !wavesDone)
+            if (currentWave >= numberOfWaves)
             {
                 wavesDone = true;
+            }
+            if (currentWave <= numberOfWaves && !wavesDone)
+            {
                 SpawnRows(SpawnTime);
             }
         }
         // Invoke("SpawnRows", 20);
     }
 
-    private void SpawnWaves()
-    {
-        // InvokeRepeating("SpawnRows", 2, 20);
-        Invoke("SpawnRows", 10f);
-    }
+    // private void SpawnWaves()
+    // {
+    //     // InvokeRepeating("SpawnRows", 2, 20);
+    //     Invoke("SpawnRows", 10f);
+    // }
 
-    private void SpawnWavesStop()
-    {
-        CancelInvoke("SpawnRows");
-        // currentWave = 0;
-        Debug.Log("WAVE SPAWNING STOPPED");
-    }
+    // private void SpawnWavesStop()
+    // {
+    //     CancelInvoke("SpawnRows");
+    //     // currentWave = 0;
+    //     Debug.Log("WAVE SPAWNING STOPPED");
+    //     PlayerManager.instance.player.GetComponent<Player>().AddTrapsAvailable(trapsRewardedAfterWave);
+    // }
 
     private void SpawnRows(float waveSpawnTime)
     {
@@ -65,6 +70,7 @@ public class SpawnWave : MonoBehaviour
         CancelInvoke("SpawnAndSpread");
         rowsSpawned = 0;
         Debug.Log("WAVE " + currentWave + " SPAWNING STOPPED");
+        PlayerManager.instance.player.GetComponent<Player>().AddTrapsAvailable(trapsRewardedAfterWave);
 
     }
 
@@ -89,4 +95,8 @@ public class SpawnWave : MonoBehaviour
         }
         rowsSpawned++;
     }
+
+    public int GetCurrentWave() => currentWave;
+    public int GetWaves() => numberOfWaves;
+
 }
