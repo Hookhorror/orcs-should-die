@@ -618,50 +618,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e8abbded7e45778be5e313c82ab4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLogic: {fileID: 1754155026}
---- !u!1 &1754155026
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1754155027}
-  - component: {fileID: 1754155028}
-  m_Layer: 0
-  m_Name: EnemyLogic
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1754155027
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1754155026}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1754155028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1754155026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12b3314e70a2497ba85851f59ba5ae57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4624164775537430583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -728,6 +684,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemySpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624164776505713422, guid: 02aa61eaf9d5fa35ebea33812905f800,
+        type: 3}
+      propertyPath: wave.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624164776505713422, guid: 02aa61eaf9d5fa35ebea33812905f800,
+        type: 3}
+      propertyPath: numberOfWaves
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02aa61eaf9d5fa35ebea33812905f800, type: 3}

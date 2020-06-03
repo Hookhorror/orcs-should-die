@@ -9,9 +9,11 @@ public class SpawnWave : MonoBehaviour
     public int[] numberOfWavesAndRows;
     // public int numberOfRowsInWave;
     public Enemy[] wave;
+    public int numberOfWaves = 1;
 
     private int rowsSpawned;
     private int currentWave;
+    private bool wavesDone;
 
     // Start is called before the first frame update
     void Start()
@@ -22,18 +24,46 @@ public class SpawnWave : MonoBehaviour
 
     private void Update()
     {
-        if (rowsSpawned >= 3 /* numberOfWavesAndRows[currentWave] */)
+        if (rowsSpawned >= 3/*  && currentWave <= numberOfWaves */ /* numberOfWavesAndRows[currentWave] */)
         {
-            CancelInvoke("SpawnAndSpread");
-            rowsSpawned = 0;
-            Debug.Log("ALL ENEMIES SPAWNED IN CURRENT WAVE");
+            SpawnRowsStop();
+            // SpawnRows();
+
+            if (currentWave <= numberOfWaves && !wavesDone)
+            {
+                wavesDone = true;
+                SpawnRows();
+            }
         }
+        // Invoke("SpawnRows", 20);
+    }
+
+    private void SpawnWaves()
+    {
+        // InvokeRepeating("SpawnRows", 2, 20);
+        Invoke("SpawnRows", 10f);
+    }
+
+    private void SpawnWavesStop()
+    {
+        CancelInvoke("SpawnRows");
+        // currentWave = 0;
+        Debug.Log("WAVE SPAWNING STOPPED");
     }
 
     private void SpawnRows()
     {
-        Debug.Log("WAVE SPAWNING STARTED");
+        currentWave++;
+        Debug.Log("SPAWNING WAVE: " + currentWave);
         InvokeRepeating("SpawnAndSpread", 3, 3);
+    }
+
+    private void SpawnRowsStop()
+    {
+        CancelInvoke("SpawnAndSpread");
+        rowsSpawned = 0;
+        Debug.Log("WAVE " + currentWave + " SPAWNING STOPPED");
+
     }
 
     private void SpawnAndSpread()
