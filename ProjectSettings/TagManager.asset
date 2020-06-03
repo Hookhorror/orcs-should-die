@@ -8,6 +8,8 @@ TagManager:
   - PlayerProjectile
   - PlayerTest
   - BottomWall
+  - Trap
+  - TrapSpot
   layers:
   - Default
   - TransparentFX

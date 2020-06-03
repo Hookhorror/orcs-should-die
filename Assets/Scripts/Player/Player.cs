@@ -8,12 +8,16 @@ public class Player : MonoBehaviour
 {
     public GameObject firingPoint;
     public Projectile projectile;
+    public GameObject spikeTrap;
     public int maxLives;
     public int maxScore;
 
     private int lives;
     private bool gameOver;
     private int score;
+    private bool canBuild;
+    private Vector3 buildLocation;
+    private GameObject currentTrapSpot;
 
     private void Awake()
     {
@@ -24,6 +28,23 @@ public class Player : MonoBehaviour
     private void Start()
     {
         lives = maxLives;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // if (CompareTag("TrapSpot"))
+        {
+            // Debug.Log("TRAP BUILD LOCATION ENTERED");
+            canBuild = true;
+            buildLocation = other.transform.position;
+            currentTrapSpot = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        // Debug.Log("TRAP BUILD LOCATION EXITED");
+        canBuild = false;
     }
 
     public void LoseLife()
@@ -53,6 +74,8 @@ public class Player : MonoBehaviour
         return firingPoint;
     }
 
+    public GameObject GetSpikeTrap() => spikeTrap;
+
     public void AddScore(int howMuch)
     {
         score += howMuch;
@@ -66,4 +89,8 @@ public class Player : MonoBehaviour
     public int GetLives() => lives;
     public bool GetGameOver() => gameOver;
     public int GetScore() => score;
+    public bool GetBuildStatus() => canBuild;
+    public Vector3 GetBuildLocation() => buildLocation;
+    public GameObject GetCurrentTrapSpot() => currentTrapSpot;
+
 }

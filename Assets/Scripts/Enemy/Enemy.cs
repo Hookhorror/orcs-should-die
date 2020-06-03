@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
 
     private int health;
     private bool dead = false;
+    private bool enteredTrap;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,12 +40,30 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // enteredTrap = true;
+        int damage = 0;
+
         if (other.CompareTag("PlayerProjectile"))
         {
-            // Debug.Log("ENEMY TOOK HIT");
-            DealDamageToSelf(other);
+            damage = other.GetComponentInParent<Projectile>().GetDamage();
+            // Debug.Log("ENEMY TOOK HIT FROM PROJECTILE");
         }
+        if (other.CompareTag("Trap"))
+        {
+            bool cd = other.GetComponentInParent<SpikeTrap>().GetCooldown();
+            if (!cd)
+            {
+                damage = other.GetComponentInParent<SpikeTrap>().GetDamage();
+                Debug.Log("TRAP SPRUNG");
+            }
+        }
+        DealDamageToSelf(damage);
     }
+
+    // private void OnTriggerExit2D(Collider2D other)
+    // {
+    //     enteredTrap = false;
+    // }
 
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -97,6 +116,12 @@ public class Enemy : MonoBehaviour
             return;
         }
         ReduceHealth(p.GetDamage());
+    }
+
+    private void DealDamageToSelf(int damage)
+    {
+        // Debug.Log("ENEMY DAMAGED");
+        ReduceHealth(damage);
     }
 
     private void setHealthToMax()

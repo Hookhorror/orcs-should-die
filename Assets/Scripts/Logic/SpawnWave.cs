@@ -6,6 +6,8 @@ using UnityEngine;
 public class SpawnWave : MonoBehaviour
 {
     public float spaceBetween;
+    public float initialSpawnTime;
+    public float SpawnTime;
     public int[] numberOfWavesAndRows;
     // public int numberOfRowsInWave;
     public Enemy[] wave;
@@ -19,7 +21,7 @@ public class SpawnWave : MonoBehaviour
     void Start()
     {
         // Spread();
-        SpawnRows();
+        SpawnRows(initialSpawnTime);
     }
 
     private void Update()
@@ -32,7 +34,7 @@ public class SpawnWave : MonoBehaviour
             if (currentWave <= numberOfWaves && !wavesDone)
             {
                 wavesDone = true;
-                SpawnRows();
+                SpawnRows(SpawnTime);
             }
         }
         // Invoke("SpawnRows", 20);
@@ -51,11 +53,11 @@ public class SpawnWave : MonoBehaviour
         Debug.Log("WAVE SPAWNING STOPPED");
     }
 
-    private void SpawnRows()
+    private void SpawnRows(float waveSpawnTime)
     {
         currentWave++;
         Debug.Log("SPAWNING WAVE: " + currentWave);
-        InvokeRepeating("SpawnAndSpread", 3, 3);
+        InvokeRepeating("SpawnAndSpread", waveSpawnTime, 3);
     }
 
     private void SpawnRowsStop()

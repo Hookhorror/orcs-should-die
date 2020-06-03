@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 359709171}
   - component: {fileID: 2908603350685423542}
   - component: {fileID: -5597207660116292667}
+  - component: {fileID: 3842233588008650851}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -157,7 +158,10 @@ MonoBehaviour:
   firingPoint: {fileID: 34620286}
   projectile: {fileID: -4808738805753694310, guid: 0550c5df2b64dbed0af37c2527f41853,
     type: 3}
+  spikeTrap: {fileID: 4712602551771572063, guid: b8dc08742bc5dfabdbc262d6e806d3b9,
+    type: 3}
   maxLives: 15
+  maxScore: 10000
 --- !u!61 &2908603350685423542
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -205,3 +209,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3842233588008650851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4723421298251427865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1297b78d04aa8fcf7b84fc74fc986af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
