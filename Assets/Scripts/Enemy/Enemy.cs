@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         setHealthToMax();
+        EnemyManager.instance.AddEnemy();
     }
 
     private bool Dead()
@@ -31,6 +32,7 @@ public class Enemy : MonoBehaviour
         {
             dead = true;
             // Debug.Log(gameObject.ToString() + " died");
+            EnemyManager.instance.RemoveEnemy();
             Destroy(gameObject);
         }
     }
@@ -51,6 +53,7 @@ public class Enemy : MonoBehaviour
         {
             GameObject player = PlayerManager.instance.player;
             player.GetComponent<Player>().LoseLife();
+            EnemyManager.instance.RemoveEnemy();
             Destroy(gameObject);
             // Debug.Log("YOU LOST A LIFE | " + player.GetComponent<Player>().GetLives() + " LEFT");
             return;

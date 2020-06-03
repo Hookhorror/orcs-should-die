@@ -9,9 +9,17 @@ public class Player : MonoBehaviour
     public GameObject firingPoint;
     public Projectile projectile;
     public int maxLives;
+    public int maxScore;
 
     private int lives;
     private bool gameOver;
+    private int score;
+
+    private void Awake()
+    {
+        score = maxScore;
+
+    }
 
     private void Start()
     {
@@ -34,8 +42,6 @@ public class Player : MonoBehaviour
         // Debug.Log("GAME OVER");
     }
 
-    public int GetLives() => lives;
-    public bool GetGameOver() => gameOver;
 
     public Projectile GetProjectile()
     {
@@ -46,4 +52,18 @@ public class Player : MonoBehaviour
     {
         return firingPoint;
     }
+
+    public void AddScore(int howMuch)
+    {
+        score += howMuch;
+    }
+
+    public void ReduceScore(int howMuch)
+    {
+        score -= howMuch;
+    }
+
+    public int GetLives() => lives;
+    public bool GetGameOver() => gameOver;
+    public int GetScore() => score;
 }

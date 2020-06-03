@@ -26,7 +26,7 @@ public class SpawnWave : MonoBehaviour
         {
             CancelInvoke("SpawnAndSpread");
             rowsSpawned = 0;
-            Debug.Log("ALL ENEMIES SPAWNED IN CURENT WAVE");
+            Debug.Log("ALL ENEMIES SPAWNED IN CURRENT WAVE");
         }
     }
 
